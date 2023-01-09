@@ -32,6 +32,8 @@ export default function GetQuestion (props) {
   return (
     <main>
 
+      <Score question={question} />
+
       <div className="question">
           <h2>Let's play!</h2>
           <button className="questionBtn" onClick={getQuestion}>Next Question</button>
