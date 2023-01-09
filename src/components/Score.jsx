@@ -1,16 +1,37 @@
 import React from "react"
 import { useState, useEffect } from "react"
+import GetQuestion from "./GetQuestion"
 
 export default function Score (props) {
+
+    const url = `https://jservice.io/api/random`
+    
+    const [question, setQuestion] = useState(null)
     const [score, setScore] = useState(0)
-    const handleIncrement = () => {
-                setScore(score + 100)
+
+    const getQuestion = async () => {
+        try {
+          const response = await fetch(url)
+          const data = await response.json()
+          setQuestion(data)
+        } catch (err) {
+          console.log(err)
+        }
+    }
+
+    useEffect(() => {
+        getQuestion()
+      }, [])
+
+    const handleIncrement = (evt) => {
+                getQuestion()
+                setScore(score + question[0].value)
+                console.log(question)
             }
         
     const handleDecrement = () => {
-        if (score !==0) {
-            setScore(score - 100)
-        }
+            getQuestion()
+            setScore(score - question[0].value)
     }
 
     const handleReset = () => {
@@ -21,13 +42,15 @@ export default function Score (props) {
         <div className="Score">
                  <h2>Score: {score}</h2>
                  <section>
-                    <button className="decrease" onClick={handleDecrement}>-</button>
-                    <button className="increase" onClick={handleIncrement}>+</button>
-                    <button className="reset" onClick={handleReset}>Reset</button>
+                    <button className="decrease" onClick={handleDecrement}>Wrong Answer -</button>
+                    <button className="increase" onClick={handleIncrement}>Correct Answer +</button>
+                    <button className="reset" onClick={handleReset}>Reset Score</button>
                  </section>
              </div>
+            //  {console.log(props)}
     )
 }
+
 
 
 // export default function Score (props) {

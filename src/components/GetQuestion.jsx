@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import Score from "./Score"
 
 export default function GetQuestion (props) {
 
@@ -33,7 +34,7 @@ export default function GetQuestion (props) {
 
       <div className="question">
           <h2>Let's play!</h2>
-          <button className="questionBtn" onClick={getQuestion}>Get Question</button>
+          <button className="questionBtn" onClick={getQuestion}>Next Question</button>
           <h3 id="question">{question[0].question}</h3>
       </div>
 
@@ -50,10 +51,10 @@ export default function GetQuestion (props) {
 
       <div className="answer">
         <h3>Answer:</h3>
-        <button className="answerBtn" onClick={handleClick}>Get Answer</button>
+        <button className="answerBtn" onClick={handleClick}>Show/Hide Answer</button>
         {answer && (<h4>{question[0].answer}</h4>)}
-        
       </div>
+      
     </main>
   )
  }
@@ -64,5 +65,4 @@ export default function GetQuestion (props) {
 
  return question ? loaded() : loading()
 
-    
 }

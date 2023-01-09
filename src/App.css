@@ -2,6 +2,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: black;
+  background-image: url(https://www.jeopardy.com/sites/default/files/styles/article_image_960_/public/2020-09/2_empty_set2.jpg?itok=Orwp0_T6);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:cover;
+  width: 100vw;
+  height: 100%;
 }
 
 .App {
@@ -12,8 +19,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 500px;
-  background-color: rgb(3, 157, 157);
+  width: 600px;
+  background-color: rgb(44, 104, 243);
+  margin: 100px;
+  border: rgb(255, 255, 255) 2px solid;
+  border-radius: 5px;
 }
 
 .header {
@@ -23,27 +33,28 @@
 
 button {
   height: 50px;
-  width: 100px;
+  width: 200px;
   border-radius: 5px;
   margin: 5px;
+  margin-bottom: 10px;
   font-weight: bolder;
   font-size: 18px;
 }
 
 .increase {
-  background-color: rgb(55, 55, 111);
+  background-color: rgb(70, 180, 94);
 }
 
 .decrease {
-  background-color: rgb(242, 147, 163);
+  background-color: rgb(205, 60, 84);
 }
 
 .reset {
-  background-color: red;
+  background-color: rgb(225, 233, 112);
 }
 
 .questionBtn {
-  background-color: goldenrod;
+  background-color: rgb(243, 172, 5);
 }
 
 .answerBtn {
@@ -53,6 +64,7 @@ button {
 
 #question {
   color: white;
+  margin: 10px;
 }
 
 h3 {
